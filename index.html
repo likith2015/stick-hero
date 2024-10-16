@@ -1,18 +1,84 @@
-<div class="container">
-    <div id="score"></div>
-    <canvas id="game" width="375" height="375"></canvas>
-    <div id="introduction">Hold down the mouse to stretch out a stick</div>
-    <div id="perfect">DOUBLE SCORE</div>
-    <button id="restart">RESTART</button>
-  </div>
-  <link rel="stylesheet" href="demo.css">
-  <script src="stick.js">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
 
-  </script>
+        #form-container {
+            width: 300px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
-  <!-- <a id="youtube" href="https://youtu.be/eue3UdFvwPo" target="_top"> -->
-    <span>See how this game was made</span>
-  </a>
-  <div id="youtube-card">
-    How to create a Stick Hero game with JavaScript and HTML Canvas
-  </div>
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #5c6bc0;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3f51b5;
+        }
+
+        p span {
+            color: #3f51b5;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function showRegister() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+        }
+
+        function showLogin() {
+            document.getElementById('register-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <div id="form-container">
+        <div id="login-form">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Username" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="button" onclick="login()">Login</button>
+            <p>Don't have an account? <span onclick="showRegister()">Register here</span></p>
+        </div>
+
+        <div id="register-form" style="display: none;">
+            <h2>Register</h2>
+            <input type="text" id="register-username" placeholder="Username" required>
+            <input type="password" id="register-password" placeholder="Password" required>
+            <button type="button" onclick="register()">Register</button>
+            <p>Already have an account? <span onclick="showLogin()">Login here</span></p>
+        </div>
+    </div>
+</body>
+</html>
